@@ -1,18 +1,23 @@
 package org.example;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
 
-        if(args.length != 1){
-            System.out.println("User: github-activity rusheeeeee");
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter GitHub username: ");
+        String username = scanner.nextLine().trim();
+
+        if (username.isEmpty()) {
+            System.out.println("Username cannot be empty.");
             return;
         }
 
-        String username = args[0];
         GitHubActivityHandler handler = new GitHubActivityHandler();
         handler.fetchAndDisplayActivity(username);
-
     }
 
 }
